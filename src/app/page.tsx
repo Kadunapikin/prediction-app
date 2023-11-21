@@ -1,8 +1,12 @@
 "use client"
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 
 export default function Home() {
   const [inputValue, SetInputValue] = useState('');
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  }
 
   return (
     <div>
@@ -11,7 +15,7 @@ export default function Home() {
       </div>
       <form action="">
         <input type="text" placeholder="Type Your Name" value={inputValue} onChange={(e) => SetInputValue(e.target.value)}/>
-        <button type="submit">Predict Data</button>
+        <button type="submit" onSubmit={handleSubmit}>Predict Data</button>
       </form>
     </div>
   )
