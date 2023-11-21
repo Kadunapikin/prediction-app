@@ -8,6 +8,12 @@ const getPredictedGender = async (name: string) => {
   return res.json();
 }
 
+const getPredictedCountry = async (name: string) => {
+  const res = await fetch(`https://api.nationalize.io/?name=${name}`)
+  return res.json();
+}
+
+
 
 
 interface Params {
