@@ -3,6 +3,12 @@ const getPredictedAge = async (name: string) => {
   return res.json();
 }
 
+const getPredictedGender = async (name: string) => {
+  const res = await fetch(`https://api.genderize.io/?name=${name}`)
+  return res.json();
+}
+
+
 
 interface Params {
   params: {name: string}
