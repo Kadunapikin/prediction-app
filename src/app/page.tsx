@@ -1,11 +1,14 @@
 "use client"
+import { useRouter } from "next/navigation";
 import { useState, FormEvent } from "react";
 
 export default function Home() {
   const [inputValue, SetInputValue] = useState('');
+  const { push } = useRouter();
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    push(`prediction/${inputValue}`)
   }
 
   return (
@@ -13,9 +16,13 @@ export default function Home() {
       <div>
         <h1>Enter Your Name</h1>
       </div>
-      <form action="">
-        <input type="text" placeholder="Type Your Name" value={inputValue} onChange={(e) => SetInputValue(e.target.value)}/>
-        <button type="submit" onSubmit={handleSubmit}>Predict Data</button>
+      <form onSubmit={handleSubmit}>
+        <input 
+        type="text" 
+        placeholder="Type Your Name..." 
+        value={inputValue} 
+        onChange={(e) => SetInputValue(e.target.value)}/>
+        <button type="submit" >Predict Data</button>
       </form>
     </div>
   )
