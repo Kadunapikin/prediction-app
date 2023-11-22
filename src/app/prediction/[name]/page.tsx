@@ -27,7 +27,12 @@ export default async function Page({ params }: Params) {
 
     return (
       <div>
-        {params.name}
+        <div>
+          <div>Personal Information</div>
+          <div>Age: {age?.age}</div>
+          <div>Gender: {gender?.gender}</div>
+          <div>Country: {country?.country[0]?.country_id}</div>
+        </div>
       </div>
     )
   }
